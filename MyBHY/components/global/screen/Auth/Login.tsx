@@ -1,8 +1,10 @@
 import React from "react";
 
-import { StyleSheet, View, StatusBar, ImageBackground, Text, Image, Pressable, Alert } from 'react-native';
+import { View, Text } from 'react-native';
 import { Header, Typography, Button as BHYButton, UIBlocks } from "../partials/usableComponent";
 import Icon from "react-native-vector-icons/AntDesign";
+import { useForm, Controller } from "react-hook-form";
+
 
 const Login = ({navigation} : any) => {
     const userInputState = React.useState({
@@ -44,7 +46,7 @@ const Login = ({navigation} : any) => {
                 )}
             ></Header>
             <UIBlocks.Container height={'100%'} >
-                <Text>Hello 2</Text>
+                <Text>Hello</Text>
             </UIBlocks.Container>
         </View>
     )
