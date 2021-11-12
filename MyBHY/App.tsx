@@ -20,12 +20,13 @@ import {
 import { Colors, DebugInstructions, Header, LearnMoreLinks, ReloadInstructions } from 'react-native/Libraries/NewAppScreen';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator, TransitionSpecs } from '@react-navigation/stack';
 
 import WelcomeScreen from './components/global/screen/WelcomeScreen';
+import Login from './components/global/screen/Auth/Login';
 
 const App = () => {
-  const Stack = createNativeStackNavigator();
+  const Stack = createStackNavigator();
 
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -35,8 +36,11 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={'Welcome'}>
-        <Stack.Screen options={{headerShown: false}} name="Welcome" component={WelcomeScreen} />
+      <Stack.Navigator initialRouteName={'Welcome'} screenOptions={{
+        headerShown: false,
+      }}>
+        <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Screen name="Auth:Login" component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
     

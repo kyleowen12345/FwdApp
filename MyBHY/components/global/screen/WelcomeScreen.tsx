@@ -4,7 +4,7 @@ import { StyleSheet, View, StatusBar, ImageBackground, Text, Image, Pressable, A
 import LinearGradient from 'react-native-linear-gradient';
 
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation } : any) => {
 
     return (
         <View style={styles.container}>
@@ -35,14 +35,18 @@ const WelcomeScreen = () => {
                         paddingRight: 20
                     }}>
                         <View style={{
-                            shadowColor: '#171717',
-                            shadowOffset: {width: -2, height: 4},
-                            shadowOpacity: 0.2,
-                            shadowRadius: 3,
+                            shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 3,
+                            },
+                            shadowOpacity: 0.29,
+                            shadowRadius: 4.65,
+                            elevation: 7,
                         }}>
 
                             <Pressable onPress={() => {
-                                Alert.alert("Login to Account", "Test");
+                                navigation.navigate("Auth:Login");
                             }}>
                                 <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#E87722', '#F48D10' , '#FFA000']} style={{
                                     padding: 15,
