@@ -1,4 +1,4 @@
-import { FlexAlignType, FlexStyle } from "react-native";
+import { FlexAlignType, FlexStyle, StyleProp } from "react-native";
 
 
 export interface IDefaultWrapper {
@@ -8,5 +8,6 @@ export interface IDefaultWrapper {
     paddingX?: number | string | undefined;
     paddingY?: number | string | undefined;
     alignItems?: FlexAlignType | undefined;
+    style?: ViewStyle;
     children?: any;
 }

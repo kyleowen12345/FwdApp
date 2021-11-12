@@ -24,6 +24,7 @@ import { createStackNavigator, TransitionSpecs } from '@react-navigation/stack';
 
 import WelcomeScreen from './components/global/screen/WelcomeScreen';
 import Login from './components/global/screen/Auth/Login';
+import { DashboardHome } from './components/global/screen/Dashboard';
 
 const App = () => {
   const Stack = createStackNavigator();
@@ -41,6 +42,7 @@ const App = () => {
       }}>
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="Auth:Login" component={Login} />
+        <Stack.Screen name="Dashboard:Home" component={DashboardHome} />
       </Stack.Navigator>
     </NavigationContainer>
     

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import { StyleSheet, View, StatusBar, ImageBackground, Text, Image, Pressable, Alert } from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
 import { IDefaultButton } from "../../interface/buttons";
 import { IDefaultWrapper } from  "../../interface/blocks";
+import { ITextInput } from "../../interface/forms";
 
 const Header = (props : any) => {
     return (
@@ -29,6 +30,37 @@ const Header = (props : any) => {
                 }}>
                     {props.centerContent}
                 </View>
+
+                {/* Right Prop */}
+                <View style={{
+                    
+                }}>
+                    {props.rightContent}
+                </View>
+            </View>
+        </View>
+    );
+}
+
+const DashboardCommunityHeader = (props : any) => {
+    return (
+        <View>
+            <StatusBar backgroundColor={(props.statusBarBackgroundColor ?? "#000")} barStyle={((props.statusBarStyle ?? "light-content"))} />
+            <View style={{
+                backgroundColor: props.statusBarBackgroundColor,
+                paddingVertical: 15,
+                paddingHorizontal: 20,
+                flexDirection: 'row'
+            }}>
+                {/* Left Prop */}
+                <View style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                }}>
+                    {props.leftContent}
+                </View>
+
+                
 
                 {/* Right Prop */}
                 <View style={{
@@ -68,7 +100,15 @@ const Button = {
                 paddingRight: props.paddingX ?? "",
                 alignItems: 'center',
                 borderRadius: props.borderRadius,
-            
+                shadowColor: "#000",
+                shadowOffset: {
+                    width: 0,
+                    height: 5,
+                },
+                shadowOpacity: 5,
+                shadowRadius: 0.5,
+
+                elevation: 5,
             }}>
                 <Text style={{
                     fontFamily: 'Poppins',
@@ -111,21 +151,24 @@ const Button = {
     }
 }
 
+
+
 const UIBlocks = {
     Container: (props : IDefaultWrapper) => {
         return (
-            <View style={{
+            <View style={[props.style, {
                 height: props.height,
                 width: props.width,
                 justifyContent: props.justifyContent,
                 alignItems: props.alignItems ?? "flex-start",
                 paddingHorizontal: props.paddingX,
                 paddingVertical: props.paddingY
-            }}>
+                
+            }]}>
                 {props.children}
             </View>
         )
         
     }
 }
-export { Header, Typography, Button, UIBlocks };
+export { Header, DashboardCommunityHeader , Typography, Button, UIBlocks };

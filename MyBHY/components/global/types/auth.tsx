@@ -1,4 +1,4 @@
-export type ILogin = {
+export type TLoginForm = {
     UserId: string;
     Password: string;
 }
