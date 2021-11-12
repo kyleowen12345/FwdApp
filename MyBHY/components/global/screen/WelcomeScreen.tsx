@@ -3,8 +3,12 @@ import React from 'react';
 import { StyleSheet, View, StatusBar, ImageBackground, Text, Image, Pressable, Alert } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+import {RootStackParamList} from '../../routes/index'
+import { NativeStackScreenProps  } from '@react-navigation/native-stack';
 
-const WelcomeScreen = () => {
+type Props = NativeStackScreenProps<RootStackParamList, 'Welcome'>;
+
+const WelcomeScreen = ({navigation}:Props) => {
 
     return (
         <View style={styles.container}>
@@ -41,15 +45,15 @@ const WelcomeScreen = () => {
                             shadowRadius: 3,
                         }}>
 
-                            <Pressable onPress={() => {
-                                Alert.alert("Login to Account", "Test");
-                            }}>
+                            <Pressable onPress={() => navigation.navigate('Login')}>
                                 <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#E87722', '#F48D10' , '#FFA000']} style={{
                                     padding: 15,
                                     alignItems: 'center',
                                     borderRadius: 40,
+                                    
+                                }}
                                 
-                                }}>
+                                >
                                     <Text style={{
                                         fontFamily: 'Poppins',
                                         color: '#fff',
@@ -65,9 +69,7 @@ const WelcomeScreen = () => {
                         
                         <Pressable style={{
                             marginTop: 20
-                        }} onPress={() => {
-                            Alert.alert("Login to Account", "Test");
-                        }}>
+                        }} onPress={() => navigation.navigate('Register')}>
                             <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#fff', '#fff']} style={{
                                 padding: 15,
                                 alignItems: 'center',
