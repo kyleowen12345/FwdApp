@@ -38,11 +38,6 @@ const RegisterScreen = ({navigation}: Props) => {
       reset()
     };
     
-    useEffect(() => {
-        if(errors){
-            console.log(errors)
-        }
-    }, [errors])
     
     return (
       <ScrollView style={{width:"100%"}} >
@@ -98,7 +93,7 @@ const RegisterScreen = ({navigation}: Props) => {
 
                   {/* Profile Information */}
 
-                  <Text style={{color:'gray',fontSize:15,fontWeight:'bold', marginBottom:20}}>Profile Information </Text>
+                  <Text style={{color:'gray',fontSize:15, marginBottom:20}}>Profile Information </Text>
 
                   <View style={{width:"90%", marginBottom:20}}>
                       <Controller
@@ -137,7 +132,6 @@ const RegisterScreen = ({navigation}: Props) => {
                             onChangeText={value => onChange(value)}
                             value={value}
                             placeholder="Last name"
-                            secureTextEntry={true}
                           />
                         )}
                         name="Lastname"
@@ -173,7 +167,7 @@ const RegisterScreen = ({navigation}: Props) => {
 
                   <LinearGradient
                       start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#E87722', '#F48D10' , '#FFA000']}
-                      style={{width:'60%' , borderRadius:50, marginBottom:20}}
+                      style={{width:'90%' , borderRadius:50, marginBottom:10}}
                   >
                       <TouchableOpacity
                         onPress={handleSubmit(onSubmit)}
@@ -183,7 +177,10 @@ const RegisterScreen = ({navigation}: Props) => {
                       </TouchableOpacity>
                   </LinearGradient>
 
-
+                  <View style={{alignItems:'center'}}>
+                    <Text style={{color:'#716F6D',fontSize:10,marginBottom:5}}>Having trouble creating an account?</Text>
+                    <Text style={{color:'black',fontSize:12,fontWeight:'bold',marginBottom:5}}>Ask Help</Text>
+                  </View> 
                    
        </View>
     </ScrollView> 

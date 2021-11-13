@@ -2,6 +2,7 @@ import React from 'react'
 
 import { NativeStackScreenProps  } from '@react-navigation/native-stack';
 import LinearGradient from 'react-native-linear-gradient';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {
     SafeAreaView,
@@ -30,8 +31,8 @@ type FormData = {
 
 const LoginScreen = ({navigation}: Props) => {
     const { control, handleSubmit,reset, formState: { errors } } = useForm<FormData>();
-    const onSubmit = (data: any) => {
-      console.log(data)
+    const onSubmit = async(data: any) => {
+      await AsyncStorage.setItem('UserId', data.UserId)
       reset()
     };
     
@@ -42,8 +43,6 @@ const LoginScreen = ({navigation}: Props) => {
         <View style={{ flex: 1, alignItems: 'center', marginTop:50,backgroundColor:"#F1F1F1" }}>  
 
               <StatusBar backgroundColor='#F1F1F1' barStyle="dark-content"/>
-
-              
 
                   <View style={{width:"90%", marginBottom:20}}>
                       <Controller
@@ -93,7 +92,7 @@ const LoginScreen = ({navigation}: Props) => {
 
                   <LinearGradient
                       start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#E87722', '#F48D10' , '#FFA000']}
-                      style={{width:'60%' , borderRadius:50}}
+                      style={{width:'90%' , borderRadius:50}}
                   >
                       <TouchableOpacity
                         onPress={handleSubmit(onSubmit)}
@@ -102,12 +101,12 @@ const LoginScreen = ({navigation}: Props) => {
                         <Text style={{color:'white',fontWeight:'bold'}}>LOG IN</Text>
                       </TouchableOpacity>
                   </LinearGradient>
-
-
+ 
                   <View style={{alignItems:'center', marginTop:15}}>
                     <Text style={{color:'#716F6D',fontSize:10,marginBottom:5}}>Having trouble with your account?</Text>
                     <Text style={{color:'black',fontSize:12,fontWeight:'bold'}}>Account Recovery</Text>
-                  </View>    
+                  </View>  
+                    
        </View>
     </ScrollView> 
     )
