@@ -78,7 +78,7 @@ const DashboardHome = ({navigation} : any) => {
                             <FA5Icon name="coins" color="#E87722" onPress={() => {
                                 
                             }} style={{
-                                fontSize: 25,
+                                fontSize: 20,
                                 fontWeight: '900',
                                 justifyContent: 'center'
                             }} />
